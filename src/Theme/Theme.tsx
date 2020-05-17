@@ -1,9 +1,11 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
+import colors from './colors';
+import fontSizes from './fontSizes';
 
 const theme = {
-  colors: {},
-  fontSizes: {},
+  colors,
+  fontSizes,
 };
 
 const Theme: React.FC<React.ReactNode> = ({ children }) => (
