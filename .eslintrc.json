@@ -19,6 +19,7 @@
         "extensions": [".tsx"]
       }
     ],
+    "react/jsx-pascal-case": "off",
     "import/order": [
       "error",
       {
