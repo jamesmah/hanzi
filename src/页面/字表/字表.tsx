@@ -49,7 +49,8 @@ const 字表: React.FC<RouteComponentProps<RouteParams>> = ({
       <容器 fluid>
         {部首对象 ? (
           <div>
-            <p>{部首对象.symbol}</p>
+            <h2>{部首对象.symbol}</h2>
+            <br />
             {部首对象.strokeNumbers.map((笔画数) => (
               <div key={笔画数.strokeNumber}>
                 <p>画{笔画数.strokeNumber}</p>

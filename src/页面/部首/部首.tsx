@@ -14,7 +14,7 @@ const 部首: React.FC<RouteComponentProps> = () => {
             <p>画{部首.strokeNumber}</p>
             <ul>
               {部首.radicals.map((radical) => (
-                <li>
+                <li key={radical.symbol}>
                   <Link to={`/radical/${radical.symbol}`}>
                     {radical.symbol}
                   </Link>
