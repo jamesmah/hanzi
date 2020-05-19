@@ -41,3 +41,6 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 ## References
 
 [https://wenku.baidu.com/view/4aa40b560b1c59eef8c7b4ba.html](https://wenku.baidu.com/view/4aa40b560b1c59eef8c7b4ba.html)
+[http://www.zdic.net/](http://www.zdic.net/)
+[https://www.mdbg.net/chinese/dictionary?page=cedict](https://www.mdbg.net/chinese/dictionary?page=cedict)
+[https://czielinski.github.io/hanzifreq/hanzifreq/output/frequencies.html](https://czielinski.github.io/hanzifreq/hanzifreq/output/frequencies.html)

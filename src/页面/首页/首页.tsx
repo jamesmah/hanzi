@@ -1,11 +1,11 @@
 import React from "react";
 import 按钮 from "react-bootstrap/Button";
 import 容器 from "react-bootstrap/Container";
-import { Link as 链接 } from "react-router-dom";
+import { Link as 链接, RouteComponentProps } from "react-router-dom";
 import 样式 from "styled-components";
 import 主标头 from "../../组件/主标头";
 
-const 首页 = () => (
+const 首页: React.FC<RouteComponentProps> = () => (
   <>
     <主标头 />
     <容器 fluid>
