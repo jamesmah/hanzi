@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { ThemeProvider } from "styled-components";
 import * as serviceWorker from "./serviceWorker";
 import 主题 from "./核心/主题";
 import 程序 from "./核心/程序";
@@ -8,9 +9,9 @@ import "./index.css";
 
 ReactDOM.render(
   <React.StrictMode>
-    <主题>
+    <ThemeProvider theme={主题}>
       <程序 />
-    </主题>
+    </ThemeProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

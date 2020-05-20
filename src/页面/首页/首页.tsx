@@ -1,25 +1,36 @@
 import React from "react";
-import 按钮 from "react-bootstrap/Button";
 import 容器 from "react-bootstrap/Container";
-import { Link as 链接, RouteComponentProps } from "react-router-dom";
-import 样式 from "styled-components";
-import 主标头 from "../../组件/主标头";
+import { RouteComponentProps, Link } from "react-router-dom";
+import styled from "styled-components";
+import 数据 from "../../数据";
 
-const 首页: React.FC<RouteComponentProps> = () => (
-  <>
-    <主标头 />
+const 首页: React.FC<RouteComponentProps> = () => {
+  return (
     <容器 fluid>
-      <内容>
-        <链接 to="/radicals">
-          <按钮 variant="primary">Radicals</按钮>
-        </链接>
-      </内容>
+      {数据.map((部首) => (
+        <div key={部首.strokeNumber}>
+          <p>画{部首.strokeNumber}</p>
+          <无序列表>
+            {部首.radicals.map((radical) => (
+              <li key={radical.symbol}>
+                <Link to={`/radical/${radical.symbol}`}>{radical.symbol}</Link>
+              </li>
+            ))}
+          </无序列表>
+        </div>
+      ))}
     </容器>
-  </>
-);
+  );
+};
 
-const 内容 = 样式.div`
-  text-align: center;
+const 无序列表 = styled.ul`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(65px, 1fr));
+  padding: 0;
+
+  li {
+    margin-left: 2rem;
+  }
 `;
 
 export default 首页;
