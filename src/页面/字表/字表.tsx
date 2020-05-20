@@ -13,7 +13,8 @@ const 字表: React.FC<RouteComponentProps<RouteParams>> = ({
   location
 }) => {
   const { radical: 部首 } = match.params;
-  const 显示所有 = new URLSearchParams(location.search).get("all") !== null;
+  // const 显示所有 = new URLSearchParams(location.search).get("all") !== null;
+  const 显示所有 = true;
 
   const 部首对象 = useMemo(() => {
     for (let i = 0; i < 数据.length; i++) {
