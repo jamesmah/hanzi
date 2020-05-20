@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "1b7adfd56f513d7cbb0ac475a5eb28a2",
+    "revision": "010e93335be16c2961ed5f4dcbf2257b",
     "url": "/hanzi/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/hanzi/static/css/2.af3c1da9.chunk.css"
   },
   {
-    "revision": "7f47a797bdc41a76f737",
-    "url": "/hanzi/static/css/main.98c3a74b.chunk.css"
+    "revision": "015626769df732b14616",
+    "url": "/hanzi/static/css/main.b98a55ff.chunk.css"
   },
   {
     "revision": "1fbc92285ed156e1b319",
@@ -20,7 +20,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/hanzi/static/js/2.e035a6a9.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "7f47a797bdc41a76f737",
+    "revision": "015626769df732b14616",
     "url": "/hanzi/static/js/main.42d902c0.chunk.js"
   },
   {
