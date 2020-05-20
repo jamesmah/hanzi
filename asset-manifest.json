@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/hanzi/static/css/main.04ce095a.chunk.css",
-    "main.js": "/hanzi/static/js/main.64e01d53.chunk.js",
-    "main.js.map": "/hanzi/static/js/main.64e01d53.chunk.js.map",
+    "main.js": "/hanzi/static/js/main.a892b3eb.chunk.js",
+    "main.js.map": "/hanzi/static/js/main.a892b3eb.chunk.js.map",
     "runtime-main.js": "/hanzi/static/js/runtime-main.6f435070.js",
     "runtime-main.js.map": "/hanzi/static/js/runtime-main.6f435070.js.map",
     "static/css/2.af3c1da9.chunk.css": "/hanzi/static/css/2.af3c1da9.chunk.css",
     "static/js/2.474a54fd.chunk.js": "/hanzi/static/js/2.474a54fd.chunk.js",
     "static/js/2.474a54fd.chunk.js.map": "/hanzi/static/js/2.474a54fd.chunk.js.map",
     "index.html": "/hanzi/index.html",
-    "precache-manifest.0c2c752762fc821d5579bf8ae6177605.js": "/hanzi/precache-manifest.0c2c752762fc821d5579bf8ae6177605.js",
+    "precache-manifest.659d21063edad49d70ce7f52dcf091fe.js": "/hanzi/precache-manifest.659d21063edad49d70ce7f52dcf091fe.js",
     "service-worker.js": "/hanzi/service-worker.js",
     "static/css/2.af3c1da9.chunk.css.map": "/hanzi/static/css/2.af3c1da9.chunk.css.map",
     "static/css/main.04ce095a.chunk.css.map": "/hanzi/static/css/main.04ce095a.chunk.css.map",
@@ -20,6 +20,6 @@
     "static/css/2.af3c1da9.chunk.css",
     "static/js/2.474a54fd.chunk.js",
     "static/css/main.04ce095a.chunk.css",
-    "static/js/main.64e01d53.chunk.js"
+    "static/js/main.a892b3eb.chunk.js"
   ]
 }
