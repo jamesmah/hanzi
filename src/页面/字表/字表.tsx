@@ -58,7 +58,7 @@ const 字表: React.FC<RouteComponentProps<RouteParams>> = ({
                 <VerboseList>
                   {笔画数.characters.map((字) => (
                     <列表项目 key={字.character}>
-                      <Link to={`/character/${字.character}`}>
+                      <Link to={`/character/${字.character}${location.search}`}>
                         <strong>{字.character}</strong>
                       </Link>
                       : {字.pinyins.join(", ")}:{" "}
@@ -70,7 +70,7 @@ const 字表: React.FC<RouteComponentProps<RouteParams>> = ({
                 <无序列表>
                   {笔画数.characters.map((字) => (
                     <li key={字.character}>
-                      <Link to={`/character/${字.character}`}>
+                      <Link to={`/character/${字.character}${location.search}`}>
                         <strong>{字.character}</strong>
                       </Link>
                     </li>

@@ -4,7 +4,7 @@ import { RouteComponentProps, Link } from "react-router-dom";
 import styled from "styled-components";
 import 数据 from "../../数据";
 
-const 首页: React.FC<RouteComponentProps> = () => {
+const 首页: React.FC<RouteComponentProps> = ({ location }) => {
   return (
     <容器 fluid>
       {数据.map((部首) => (
@@ -13,7 +13,7 @@ const 首页: React.FC<RouteComponentProps> = () => {
           <无序列表>
             {部首.radicals.map((radical) => (
               <li key={radical.symbol}>
-                <Link to={`/radical/${radical.symbol}`}>
+                <Link to={`/radical/${radical.symbol}${location.search}`}>
                   <strong>{radical.symbol}</strong>
                 </Link>
               </li>

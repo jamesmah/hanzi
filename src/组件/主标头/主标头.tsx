@@ -82,8 +82,11 @@ const 容器 = 样式.header`
 
 const 标题 = 样式.h1`
   grid-area: center;
-  color: white;
   cursor: pointer;
+
+  a {
+    color: white;
+  }
 `;
 
 export default 主标头;
