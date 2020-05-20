@@ -1,6 +1,7 @@
 import React, { useMemo } from "react";
-import 容器 from "react-bootstrap/Container";
+import Container from "react-bootstrap/Container";
 import { RouteComponentProps } from "react-router-dom";
+import styled from "styled-components";
 import 数据 from "../../数据";
 
 interface RouteParams {
@@ -33,18 +34,25 @@ const 字: React.FC<RouteComponentProps<RouteParams>> = ({ match }) => {
         <div>
           <h2>{字对象.character}</h2>
           <p>{字对象.pinyins.join(", ")}</p>
-          <p>部首：{字对象.radical}</p>
-          <p>部外：{字对象.additionalStrokes}</p>
-          <p>总笔画：{字对象.totalStrokes}</p>
-          <p>英文：{字对象.translations[0]}</p>
+          <Section>
+            <p>部首：{字对象.radical}</p>
+            <p>部外：{字对象.additionalStrokes}</p>
+            <p>总笔画：{字对象.totalStrokes}</p>
+          </Section>
+          <br />
+
+          <h3>英文</h3>
+          <ul>
+            {字对象.translations.map((def, index) => (
+              <li key={index}>{def}</li>
+            ))}
+          </ul>
 
           <br />
           <h3>字义</h3>
           {字对象.pinyins.map((pinyin, index) => (
             <div>
-              <p>
-                <strong>{pinyin}</strong>
-              </p>
+              <h4>{pinyin}</h4>
               <>
                 <ul>
                   {字对象.definitions[index].map((definition) => (
@@ -61,5 +69,19 @@ const 字: React.FC<RouteComponentProps<RouteParams>> = ({ match }) => {
     </容器>
   );
 };
+
+const 容器 = styled(Container)`
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  overflow: auto;
+`;
+
+const Section = styled.div`
+  font-size: 1rem;
+
+  p {
+    margin-bottom: 0;
+  }
+`;
 
 export default 字;
