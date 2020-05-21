@@ -1,6 +1,6 @@
 import 数据 from "./数据.json";
 
-interface ICharacter {
+export interface ICharacter {
   character: string;
   pinyins: string[];
   definitions: string[][];

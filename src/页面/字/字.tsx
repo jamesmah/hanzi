@@ -55,8 +55,8 @@ const 字: React.FC<RouteComponentProps<RouteParams>> = ({ match }) => {
               <h4>{pinyin}</h4>
               <>
                 <ul>
-                  {字对象.definitions[index].map((definition) => (
-                    <li>{definition}</li>
+                  {字对象.definitions[index].map((definition, index) => (
+                    <li key={index}>{definition}</li>
                   ))}
                 </ul>
               </>
