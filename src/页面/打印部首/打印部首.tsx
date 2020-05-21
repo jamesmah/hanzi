@@ -3,7 +3,6 @@ import Container from "react-bootstrap/Container";
 import { RouteComponentProps } from "react-router-dom";
 import styled from "styled-components";
 import SettingsContext from "../../utils/SettingsContext";
-import { ICharacter } from "../../数据";
 
 const 打印部首: React.FC<RouteComponentProps> = () => {
   const settings = useContext(SettingsContext);

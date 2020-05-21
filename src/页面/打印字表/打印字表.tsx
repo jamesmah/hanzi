@@ -1,4 +1,4 @@
-import React, { useContext, Fragment, useMemo } from "react";
+import React, { useContext, Fragment } from "react";
 import Container from "react-bootstrap/Container";
 import { RouteComponentProps } from "react-router-dom";
 import styled from "styled-components";
