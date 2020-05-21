@@ -77,7 +77,7 @@ const 字表组件: React.FC<字表组件Props> = ({ characters }) => {
 };
 
 const SmallText = styled.span`
-  font-size: 0.5rem;
+  font-size: 0.75rem;
 `;
 
 export default 字表组件;
