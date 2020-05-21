@@ -51,7 +51,7 @@ const 字: React.FC<RouteComponentProps<RouteParams>> = ({ match }) => {
           <br />
           <h3>字义</h3>
           {字对象.pinyins.map((pinyin, index) => (
-            <div>
+            <div key={index}>
               <h4>{pinyin}</h4>
               <>
                 <ul>

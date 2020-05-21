@@ -1,26 +1,37 @@
-import React from "react";
+import React, { useContext } from "react";
 import Container from "react-bootstrap/Container";
 import { RouteComponentProps, Link } from "react-router-dom";
 import styled from "styled-components";
+import SettingsContext from "../../utils/SettingsContext";
 import 数据 from "../../数据";
 
 const 首页: React.FC<RouteComponentProps> = ({ location }) => {
+  const settings = useContext(SettingsContext);
   return (
     <容器 fluid>
-      {数据.map((部首) => (
-        <section key={部首.strokeNumber}>
-          <h4>画{部首.strokeNumber}</h4>
-          <无序列表>
-            {部首.radicals.map((radical) => (
-              <li key={radical.symbol}>
-                <Link to={`/radical/${radical.symbol}`}>
-                  <strong>{radical.symbol}</strong>
-                </Link>
-              </li>
-            ))}
-          </无序列表>
-        </section>
-      ))}
+      {数据.map((部首) => {
+        if (!settings.all && !部首.radicals.some((radical) => radical.common)) {
+          return null;
+        }
+
+        return (
+          <section key={部首.strokeNumber}>
+            <h4>画{部首.strokeNumber}</h4>
+            <无序列表>
+              {部首.radicals.map((radical) => {
+                if (!settings.all && !radical.common) return null;
+                return (
+                  <li key={radical.symbol}>
+                    <Link to={`/radical/${radical.symbol}`}>
+                      <strong>{radical.symbol}</strong>
+                    </Link>
+                  </li>
+                );
+              })}
+            </无序列表>
+          </section>
+        );
+      })}
     </容器>
   );
 };

@@ -8,6 +8,7 @@ interface ICharacter {
   radical: string;
   additionalStrokes: number;
   totalStrokes: number;
+  common: boolean;
 }
 
 interface IStrokeNumber {
@@ -18,6 +19,7 @@ interface IStrokeNumber {
 interface IRadical {
   symbol: string;
   names: string[];
+  common: boolean;
   strokeNumbers: IStrokeNumber[];
 }
 
