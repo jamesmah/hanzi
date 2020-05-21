@@ -13,7 +13,7 @@ const 首页: React.FC<RouteComponentProps> = ({ location }) => {
           <无序列表>
             {部首.radicals.map((radical) => (
               <li key={radical.symbol}>
-                <Link to={`/radical/${radical.symbol}${location.search}`}>
+                <Link to={`/radical/${radical.symbol}`}>
                   <strong>{radical.symbol}</strong>
                 </Link>
               </li>

@@ -1,25 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import Button from "react-bootstrap/Button";
 import { RouteComponentProps } from "react-router-dom";
 import 样式 from "styled-components";
 import { notchHeight } from "../../utils/notch";
+import SettingsContext from "../../utils/SettingsContext";
 
 const 主标头: React.FC<RouteComponentProps> = ({ history, location }) => {
-  const params = new URLSearchParams(location.search);
-  const showAll = params.get("all") !== null;
-  const showVerbose = params.get("verbose") !== null;
-
-  const toggleCommon = () => {
-    if (showAll) params.delete("all");
-    else params.append("all", "true");
-    history.replace(`${location.pathname}?${params.toString()}`);
-  };
-
-  const toggleCompact = () => {
-    if (showVerbose) params.delete("verbose");
-    else params.append("verbose", "true");
-    history.replace(`${location.pathname}?${params.toString()}`);
-  };
+  const settings = useContext(SettingsContext);
 
   return (
     <容器>
@@ -28,11 +15,11 @@ const 主标头: React.FC<RouteComponentProps> = ({ history, location }) => {
       )}
       <标题 onClick={() => history.push("/")}>汉字</标题>
       <ToggleContainer>
-        <Toggle onClick={() => toggleCommon()}>
-          {showAll ? "All" : "Common"}
+        <Toggle onClick={() => settings.toggleAll()}>
+          {settings.all ? "All" : "Common"}
         </Toggle>
-        <Toggle onClick={() => toggleCompact()}>
-          {showVerbose ? "Verbose" : "Compact"}
+        <Toggle onClick={() => settings.toggleVerbose()}>
+          {settings.verbose ? "Verbose" : "Compact"}
         </Toggle>
       </ToggleContainer>
     </容器>
