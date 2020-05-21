@@ -3,7 +3,6 @@ import Container from "react-bootstrap/Container";
 import { RouteComponentProps, Link } from "react-router-dom";
 import styled from "styled-components";
 import SettingsContext from "../../utils/SettingsContext";
-import 数据 from "../../数据";
 
 interface RouteParams {
   radical: string;
@@ -15,14 +14,14 @@ const 字表: React.FC<RouteComponentProps<RouteParams>> = ({ match }) => {
   const settings = useContext(SettingsContext);
 
   const 部首对象 = useMemo(() => {
-    for (let i = 0; i < 数据.length; i++) {
-      const 部首对象 = 数据[i].radicals.find((rad) => {
+    for (let i = 0; i < settings.data.length; i++) {
+      const 部首对象 = settings.data[i].radicals.find((rad) => {
         return rad.symbol === 部首;
       });
 
       if (部首对象) return 部首对象;
     }
-  }, [部首]);
+  }, [settings.data, 部首]);
 
   if (!部首对象) {
     return (
@@ -39,46 +38,33 @@ const 字表: React.FC<RouteComponentProps<RouteParams>> = ({ match }) => {
         <名称>名称：{部首对象.names.join(", ")}</名称>
       )}
       <br />
-      {部首对象.strokeNumbers.map((笔画数) => {
-        if (!settings.all && !笔画数.characters.some((char) => char.common)) {
-          return null;
-        }
-
-        return (
-          <section key={笔画数.strokeNumber}>
-            <h4>画{笔画数.strokeNumber}</h4>
-            {settings.verbose ? (
-              <VerboseList>
-                {笔画数.characters.map((字) => {
-                  if (!settings.all && !字.common) return null;
-                  return (
-                    <列表项目 key={字.character}>
-                      <Link to={`/character/${字.character}`}>
-                        <strong>{字.character}</strong>
-                      </Link>
-                      : {字.pinyins.join(", ")}:{" "}
-                      <翻译>{字.translations[0]}</翻译>
-                    </列表项目>
-                  );
-                })}
-              </VerboseList>
-            ) : (
-              <无序列表>
-                {笔画数.characters.map((字) => {
-                  if (!settings.all && !字.common) return null;
-                  return (
-                    <li key={字.character}>
-                      <Link to={`/character/${字.character}`}>
-                        <strong>{字.character}</strong>
-                      </Link>
-                    </li>
-                  );
-                })}
-              </无序列表>
-            )}
-          </section>
-        );
-      })}
+      {部首对象.strokeNumbers.map((笔画数) => (
+        <section key={笔画数.strokeNumber}>
+          <h4>画{笔画数.strokeNumber}</h4>
+          {settings.verbose ? (
+            <VerboseList>
+              {笔画数.characters.map((字) => (
+                <列表项目 key={字.character}>
+                  <Link to={`/character/${字.character}`}>
+                    <strong>{字.character}</strong>
+                  </Link>
+                  : {字.pinyins.join(", ")}: <翻译>{字.translations[0]}</翻译>
+                </列表项目>
+              ))}
+            </VerboseList>
+          ) : (
+            <无序列表>
+              {笔画数.characters.map((字) => (
+                <li key={字.character}>
+                  <Link to={`/character/${字.character}`}>
+                    <strong>{字.character}</strong>
+                  </Link>
+                </li>
+              ))}
+            </无序列表>
+          )}
+        </section>
+      ))}
     </容器>
   );
 };

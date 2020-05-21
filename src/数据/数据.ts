@@ -21,9 +21,10 @@ interface IRadical {
   names: string[];
   common: boolean;
   strokeNumbers: IStrokeNumber[];
+  index?: number;
 }
 
-interface IRadicalsByStrokeNumber {
+export interface IRadicalsByStrokeNumber {
   strokeNumber: number;
   radicals: IRadical[];
 }

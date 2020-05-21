@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { Switch, Route } from "react-router-dom";
 import styled from "styled-components";
 import SettingsContext from "../../utils/SettingsContext";
+import 数据, { IRadicalsByStrokeNumber } from "../../数据";
 import 主标头 from "../../组件/主标头";
 import 字 from "../../页面/字";
 import 字表 from "../../页面/字表";
@@ -14,13 +15,41 @@ const 程序: React.FC = () => {
   const toggleAll = () => setAll(!all);
   const toggleVerbose = () => setVerbose(!verbose);
 
+  const data = useMemo(() => {
+    if (all) return 数据;
+    const data: IRadicalsByStrokeNumber[] = JSON.parse(JSON.stringify(数据));
+
+    data.forEach((s) => {
+      s.radicals.forEach((r) => {
+        r.strokeNumbers.forEach((n) => {
+          n.characters = n.characters.filter((c) => c.common);
+        });
+      });
+    });
+
+    data.forEach((s) => {
+      s.radicals.forEach((r) => {
+        r.strokeNumbers = r.strokeNumbers.filter((n) =>
+          n.characters.some((c) => c.common)
+        );
+      });
+    });
+
+    data.forEach((s) => {
+      s.radicals = s.radicals.filter((r) => r.common);
+    });
+
+    return data.filter((s) => s.radicals.length > 0);
+  }, [all]);
+
   return (
     <SettingsContext.Provider
       value={{
         all,
         toggleAll,
         verbose,
-        toggleVerbose
+        toggleVerbose,
+        data
       }}
     >
       <Page>
@@ -45,6 +74,8 @@ const Page = styled.div`
   right: 0;
   display: flex;
   flex-direction: column;
+  background: black;
+  color: white;
 `;
 
 export default 程序;
