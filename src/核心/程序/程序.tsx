@@ -83,8 +83,6 @@ const Page = styled.div`
   right: 0;
   display: flex;
   flex-direction: column;
-  background: black;
-  color: white;
 `;
 
 export default 程序;
