@@ -6,6 +6,7 @@ import 数据, { IRadicalsByStrokeNumber } from "../../数据";
 import 主标头 from "../../组件/主标头";
 import 字 from "../../页面/字";
 import 字表 from "../../页面/字表";
+import 打印 from "../../页面/打印";
 import 打印字表 from "../../页面/打印字表";
 import 打印部首 from "../../页面/打印部首";
 import 未找到页面 from "../../页面/未找到页面";
@@ -55,6 +56,7 @@ const 程序: React.FC = () => {
       }}
     >
       <Switch>
+        <Route path="/print" component={打印} exact />
         <Route path="/print-radicals" component={打印部首} exact />
         <Route path="/print-characters" component={打印字表} exact />
         <Route>
